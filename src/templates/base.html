@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+
+<head>
+<!--meta http-equiv="X-UA-Compatible" content="IE=edge" /-->
+<meta charset="UTF-8" />
+
+
+<title>{% block head_title %}{% endblock head_title %}</title>
+<link rel="icon" href="{% static 'icons/favicon.ico' %}">
+<link rel='stylesheet' href='{% static "vendor/bootstrap/bootstrap.css" %}' />
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
+<link rel='stylesheet' href='{% static "css/base.css" %}' />
+
+<script type="text/JavaScript" src='{% static "vendor/jquery/jquery-3.2.1.js" %}'></script>
+<script type="text/JavaScript" src='{% static "vendor/popper.js" %}'></script>
+<script type="text/JavaScript" src='{% static "vendor/bootstrap/bootstrap.js" %}'></script>
+
+{% block head_extra %} {% endblock head_extra %}
+<style>{% block style %}{% endblock style %}</style>
+</head>
+
+<body>
+
+<div class='nav'>
+	<div>
+    <ol class='breadcrumb'>
+		<li class="breadcrumb-item"><a href='{% url "main:homepage" %}'>Home</a></li>
+        <li class="breadcrumb-item"><a href='{% url "main:facilities" %}'>Facilities</a></li>
+		<li class="breadcrumb-item"><a href='{% url "main:projects" %}'>Projects</a></li>
+		<li class="breadcrumb-item"><a href='{% url "main:publications" %}'>Publications</a></li>
+		<li class="breadcrumb-item"><a href='{% url "main:contact" %}'>Contact</a></li>
+    </ol>
+</div>
+</div>
+
+<div class='container-fluid'>
+{% block content %}
+{% endblock content %}
+</div>
+
+</body>
+</html>
